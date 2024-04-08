@@ -5,25 +5,9 @@ import { ObjectId } from "mongodb";
 const postRouter = express.Router();
 
 postRouter.get("/", async (req, res) => {
-  try {
-    const sort = {'_id': -1}
-    const posts = await db.collection('posts').find({}).sort(sort).toArray();
-    res.json(posts);
-  } catch (error) {
-    console.error(error);
-    res.status(500).send("Internal Server Error");
-  }
+  // TODO POST GET ALL
 });
 
-postRouter.get("/", async (req, res) => {
-  try {
-    const posts = await db.collection('posts').find({}).toArray();
-    res.json(posts);
-  } catch (error) {
-    console.error(error);
-    res.status(500).send("Internal Server Error");
-  }
-});
 
 postRouter.get("/:id", async (req, res) => {
   const postId = req.params.id;
@@ -90,18 +74,7 @@ postRouter.put("/:id", async (req, res) => {
 
 
 postRouter.delete("/:id", async (req, res) => {
-  const postId = req.params.id;
-  try {
-    const deleted = await db.collection('posts').deleteOne({ _id: new ObjectId(postId) });
-    if (deleted.deletedCount === 1) {
-      res.status(204).send();
-    } else {
-      res.status(404).send("Post not found");
-    }
-  } catch (error) {
-    console.error(error);
-    res.status(500).send("Internal Server Error");
-  }
+  // TODO DELETE POSTS
 });
 
 
