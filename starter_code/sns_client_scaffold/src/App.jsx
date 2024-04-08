@@ -1,7 +1,7 @@
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import MainFeedContainer from './components/common/MainFeedContainer';
-import Register from './components/login/Register';
-import Login from './components/login/Login';
+import Register from './components/login/register';
+import Login from './components/login/login';
 import ProfilePage from './components/profile';
 
 
