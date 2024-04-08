@@ -41,8 +41,8 @@ userRouter.post('/suggestions', async (req, res) => {
           isFollowing: { $in: ["$_id", user.following.map(id => ObjectId.createFromHexString(id))] }
       } },
       { $match: { isFollowing: false } },
-      { $limit: 20 }
-    ]).toArray();
+      { $limit: 30 }
+    ]).sort({"_id": -1}).toArray();
     
     res.json(suggestions);
   } catch (error) {
